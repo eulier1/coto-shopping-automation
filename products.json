@@ -1,0 +1,12 @@
+{
+  "items": [
+    { "name": "Batata Americana", "defaultQty": 2 , "searchQuery": "Batata Americana", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"] },
+    { "name": "Banana", "defaultQty": 12, "searchQuery": "Banana", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]  },
+    { "name": "Palta", "defaultQty": 5, "searchQuery": "Palta", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]  },
+    { "name": "Pimiento Rojo", "defaultQty": 4, "searchQuery": "Pimiento Rojo", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]  },
+    { "name": "Super Cabrales 250gr", "defaultQty": 1, "searchQuery": "Super Cabrales 250gr", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]  } ,
+    { "name": "Filtro de cafe", "defaultQty": 1, "searchQuery": "Filtro de cafe", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]  } ,
+    { "name": "Queso Canut parmesano", "defaultQty": 1, "searchQuery": "Queso Canut parmesano", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]  } ,
+    { "name": "Ajo en mallla", "defaultQty": 1, "searchQuery": "Ajo en mallla", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]  } 
+    ]
+}

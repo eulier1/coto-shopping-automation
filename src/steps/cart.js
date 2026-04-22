@@ -1,5 +1,6 @@
 import { CART, URLS } from '../browser/selectors.js';
 import { CartError, CheckoutError, NetworkError } from '../utils/errors.js';
+import { appendPurchaseLog } from '../utils/purchaseLog.js';
 import { parseARSPrice } from '../utils/pricing.js';
 import { renderCartTable } from '../ui/tables.js';
 import { askContinueToCart } from '../ui/prompts.js';
@@ -56,19 +57,21 @@ export async function reviewCart(page, products) {
   }
 
   // Click checkout button
-  const checkoutBtn = page.locator(CART.CHECKOUT_BTN).first();
+  const checkoutBtn = page.getByRole('button', { name: CART.CHECKOUT_BTN_NAME });
   const checkoutVisible = await checkoutBtn.isVisible().catch(() => false);
   if (!checkoutVisible) {
-    throw new CartError('No se encontró el botón de checkout. Verificá el selector CART.CHECKOUT_BTN.');
+    throw new CartError(`No se encontró el botón "${CART.CHECKOUT_BTN_NAME}". Verificá con PWDEBUG=1 npm start.`);
   }
 
   await checkoutBtn.click();
+  appendPurchaseLog(products);
 
   // Wait for next screen to load
   await page.waitForLoadState('networkidle', { timeout: 30_000 }).catch(() => {});
   await new Promise(r => setTimeout(r, 1500));
 
   print.success('Checkout iniciado');
+  print.info('Compra registrada en purchase-log.json');
 }
 
 async function scrapeCartItems(page) {

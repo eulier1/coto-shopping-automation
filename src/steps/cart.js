@@ -10,9 +10,10 @@ import ora from 'ora';
  * Step 3 — Navigate to cart, show summary, ask user to proceed to checkout.
  *
  * @param {Page} page
+ * @param {Array} products — output of loadProducts()
  * @returns {void}
  */
-export async function reviewCart(page) {
+export async function reviewCart(page, products) {
   print.step(3, 7, 'Revisión del carrito');
 
   const spinner = ora('Cargando carrito…').start();

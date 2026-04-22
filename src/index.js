@@ -64,7 +64,7 @@ async function main() {
     await searchAndAddProducts(page, products);
 
     // Step 3 — Cart review
-    await reviewCart(page);
+    await reviewCart(page, products);
 
     // Step 4 — Delivery selection
     await selectDelivery(page);

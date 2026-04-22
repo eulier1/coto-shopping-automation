@@ -1,0 +1,7 @@
+node_modules/
+.env
+playwright-state.json
+playwright-report/
+test-results/
+purchase-log.json
+productsNotFound.log

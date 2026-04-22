@@ -62,7 +62,8 @@ export const CART = {
   ITEM_UNIT_PRICE:   '[class*="precio"], [class*="price"]',
   ITEM_TOTAL:        '[class*="subtotal"], [class*="total-item"]',
   GRAND_TOTAL:       '[class*="total-general"], [class*="grandTotal"], [class*="totalPedido"]',
-  CHECKOUT_BTN:      '[class*="checkout"], [class*="comprar"], button:has-text("Iniciar compra"), button:has-text("Checkout")',
+  // Confirmed via live DOM inspection — matched with getByRole in cart.js
+  CHECKOUT_BTN_NAME: 'Continuar compra',
   EMPTY_CART_MSG:    '[class*="carrito-vacio"], [class*="emptyCart"]',
 };
 

@@ -7,10 +7,8 @@ import ora from 'ora';
 /**
  * Step 1 — Log in to COTO Digital.
  *
- * First navigates to HOME so we can read the domain's localStorage.
- * If a session token is found there (and the site doesn't redirect to /ingresar),
- * we skip the form entirely and proceed.
- * Otherwise, navigates to /ingresar, fills credentials, and saves the session.
+ * Always navigates to /ingresar and fills credentials.
+ * Session reuse is not attempted because the browser context is always fresh.
  *
  * @param {Page} page
  * @param {BrowserContext} context
@@ -19,36 +17,7 @@ import ora from 'ora';
 export async function login(page, context, credentials) {
   print.step(1, 7, 'Iniciando sesión en COTO Digital');
 
-  const spinner = ora('Verificando sesión almacenada…').start();
-
-  // Navigate to HOME so the browser is on the COTO domain and we can read localStorage
-  try {
-    await page.goto(URLS.HOME, { waitUntil: 'domcontentloaded', timeout: 4_000 });
-  } catch (err) {
-    spinner.fail('No se pudo cargar el sitio');
-    throw new NetworkError(err.message);
-  }
-
-  // Check localStorage for any session/auth data stored by the site
-  const hasStoredSession = await page.evaluate(() => {
-    try {
-      const keys = Object.keys(localStorage);
-      return keys.some(k => /token|user|session|auth|customer|profile|login/i.test(k));
-    } catch {
-      return false;
-    }
-  });
-
-  // If localStorage has session data AND the site didn't redirect us to /ingresar,
-  // the session is valid — skip the login form
-  if (hasStoredSession && !page.url().includes('/ingresar')) {
-    spinner.succeed('Sesión activa encontrada en localStorage');
-    return;
-  }
-
-  // ── No valid session — fill the login form ────────────────────────────────
-
-  spinner.text = 'Navegando al formulario de login…';
+  const spinner = ora('Navegando al formulario de login…').start();
   try {
     await page.goto(URLS.LOGIN, { waitUntil: 'domcontentloaded', timeout: 4_000 });
   } catch (err) {

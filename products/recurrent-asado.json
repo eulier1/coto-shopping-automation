@@ -1,0 +1,11 @@
+{
+    "items" : [ 
+    { "name": "Chorizo De Cerdo COTO", "defaultQty": 4, "searchQuery": "Chorizo De Cerdo COTO", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]  },
+    { "name": "Morcilla Env Vacio COTO", "defaultQty": 5, "searchQuery": "Morcilla Env Vacio COTO", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]  },
+    { "name": "Asado Del Medio", "defaultQty": 4, "searchQuery": "Asado Del Medio", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"] },
+    { "name": "Tomate" , "defaultQty": 6, "searchQuery": "Tomate", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"] },
+    {"name": "Zanahoria", "defaultQty": 2, "searchQuery": "Zanahoria", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]},
+    {"name": "Cebolla Seleccionada En Bolsita", "defaultQty": 2, "searchQuery": "Cebolla Seleccionada En Bolsita", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]},
+    {"name": "Sal Parrillera", "defaultQty": 1, "searchQuery": "Sal Parrillera", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]}
+]
+}

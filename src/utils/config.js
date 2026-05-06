@@ -26,8 +26,7 @@ export function getCredentials() {
   return { email, password };
 }
 
-export function loadProducts() {
-  const filePath = resolve(process.cwd(), process.env.PRODUCTS_FILE || './products.json');
+export function loadProducts(filePath) {
 
   if (!existsSync(filePath)) {
     throw new ConfigError(`products.json not found at: ${filePath}`);
@@ -62,6 +61,3 @@ export function loadProducts() {
   }));
 }
 
-export function isDryRun() {
-  return process.argv.includes('--dry-run');
-}

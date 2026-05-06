@@ -24,8 +24,7 @@ npx playwright install chromium
 cp .env.example .env
 # Edit .env with your COTO Digital email and password
 
-# 4. Configure your shopping list
-# Edit products.json (see schema below)
+# 4. Add your shopping list(s) to products/ (see schema below)
 ```
 
 ---
@@ -33,16 +32,44 @@ cp .env.example .env
 ## Usage
 
 ```bash
-npm start                   # Full purchase flow (headed Chromium)
-npm start -- --dry-run      # Full flow, skips the final payment click
-PWDEBUG=1 npm start         # Opens Playwright Inspector for selector debugging
+npm start                                        # Interactive list picker, then full flow
+npm start -- --file=products/weekly.json         # Load a specific product list
+npm start -- -f products/weekly.json             # Short flag equivalent
+npm start -- --file=products/weekly.json --dry-run  # Skip the final payment click
+PWDEBUG=1 npm start                              # Open Playwright Inspector for debugging
 ```
 
 > **Safety guard:** The final payment confirmation defaults to `No`. You must explicitly type `y` to complete the purchase.
 
 ---
 
-## products.json Schema
+## Product Lists
+
+Product lists live in the `products/` directory. When `--file` is omitted:
+
+- **Single file in `products/`** → used automatically, no prompt
+- **Multiple files** → interactive picker shown (requires a TTY)
+- **Non-TTY** (cron, pipe) → error with usage hint; `--file` is required
+
+### Named shortcuts
+
+```bash
+npm run start:weekly      # products/weekly.json
+npm run start:asado       # products/recurrent-asado.json
+npm run start:recurrent   # products/COTO-recurrent-purchases.json
+
+npm run debug:weekly      # same, with Playwright Inspector
+npm run debug:asado
+npm run debug:recurrent
+```
+
+### Adding a new list
+
+Drop any valid `*.json` file into `products/` and it will appear in the picker automatically.
+
+---
+
+## Product List Schema
 
 ```json
 {
@@ -89,7 +116,10 @@ The key is the local timestamp truncated to the hour. The file is gitignored (ru
 ```
 coto-grocery-weekly-purchase-automation/
 ├── .env.example                # Credentials template
-├── products.json               # Weekly shopping list
+├── products/
+│   ├── weekly.json             # Default weekly shopping list
+│   ├── recurrent-asado.json    # Asado / BBQ list
+│   └── COTO-recurrent-purchases.json  # Full recurrent list
 ├── purchase-log.json           # Auto-generated; gitignored
 ├── productsNotFound.log        # Auto-generated; overwritten each run
 └── src/
@@ -110,7 +140,8 @@ coto-grocery-weekly-purchase-automation/
     │   ├── tables.js           # cli-table3 renderers
     │   └── prompts.js          # @inquirer/prompts wrappers
     └── utils/
-        ├── config.js           # Env loader, products.json reader, validation
+        ├── args.js             # CLI flag parsing (--file/-f, --dry-run)
+        ├── config.js           # Env loader, product list reader, validation
         ├── purchaseLog.js      # Appends to purchase-log.json on checkout
         ├── pricing.js          # IVA calculation, ARS formatting
         └── errors.js           # Typed error classes, withRetry(), handleFatalError()

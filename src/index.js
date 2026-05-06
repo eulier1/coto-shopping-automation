@@ -16,7 +16,9 @@
  *   PWDEBUG=1 npm start     — Open Playwright Inspector
  */
 
-import { loadEnv, getCredentials, loadProducts, isDryRun } from './utils/config.js';
+import { loadEnv, getCredentials, loadProducts } from './utils/config.js';
+import { getArgs } from './utils/args.js';
+import { basename } from 'node:path';
 import { launchBrowser, closeBrowser } from './browser/launcher.js';
 import { handleFatalError } from './utils/errors.js';
 import { print } from './ui/output.js';
@@ -33,14 +35,14 @@ async function main() {
   // ── Load configuration ──────────────────────────────────────────────────────
   loadEnv();
   const credentials = getCredentials();
-  const products = loadProducts();
-  const dryRun = isDryRun();
+  const { file, dryRun } = await getArgs();
+  const products = loadProducts(file);
 
   print.header('COTO Digital — Compra Semanal Automática');
   if (dryRun) {
     print.warn('Modo DRY-RUN activo — no se realizará el pago final.');
   }
-  print.info(`${products.length} producto(s) cargados desde products.json`);
+  print.info(`${products.length} producto(s) cargados desde ${basename(file)}`);
   print.divider();
 
   // ── Launch browser ──────────────────────────────────────────────────────────

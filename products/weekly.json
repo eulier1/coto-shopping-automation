@@ -1,17 +1,16 @@
 {
   "items": [
     {"name": "Banana", "defaultQty": 6, "searchQuery": "Banana", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]},
-    {"name": "Batata Americana", "defaultQty": 4, "searchQuery": "Batata Americana", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]},
+    {"name": "Batata Americana", "defaultQty": 6, "searchQuery": "Batata Americana", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]},
     {"name": "Cepillo dental bamboo", "defaultQty": 1, "searchQuery": "Cepillo dental bamboo", "mustExclude": []},
-    {"name": "Champu Johnson", "defaultQty": 1, "searchQuery": "Champu Johnson", "mustExclude": []},
-    {"name": "Filtro de cafe", "defaultQty": 1, "searchQuery": "Filtro de cafe", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]},
-    {"name": "Jabon Johnson", "defaultQty": 1, "searchQuery": "Jabon Johnson", "mustExclude": []},
-    { "name": "Detergente MAGISTRAL", "defaultQty": 1, "searchQuery": "Detergente MAGISTRAL", "mustExclude": []  },
+    {"name": "Filtro De Papel Para Cafe Nº2", "defaultQty": 1, "searchQuery": "Filtro De Papel Para Cafe Nº2", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]},
+    {"name": "Shampoo Para Bebé Johnson'S Original", "defaultQty": 1, "searchQuery": "Shampoo Para Bebé Johnson'S Original", "mustExclude": []},
+    {"name": "Detergente MAGISTRAL", "defaultQty": 1, "searchQuery": "Detergente MAGISTRAL", "mustExclude": []  },
     {"name": "Palta", "defaultQty": 5, "searchQuery": "Palta", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]},
     {"name": "Pimiento Rojo", "defaultQty": 4, "searchQuery": "Pimiento Rojo", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]},
-    {"name": "Repollo Blanco", "defaultQty": 4, "searchQuery": "Repollo Blanco", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]},
-    {"name": "Repollo Colorado", "defaultQty": 4, "searchQuery": "Repollo Colorado", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]},
-    {"name": "Super Cabrales 250gr", "defaultQty": 1, "searchQuery": "Super Cabrales 250gr", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]},
-    {"name": "Zanahoria", "defaultQty": 2, "searchQuery": "Zanahoria", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]}
+    {"name": "Repollo Blanco", "defaultQty": 6, "searchQuery": "Repollo Blanco", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]},
+    {"name": "Repollo Colorado", "defaultQty": 6, "searchQuery": "Repollo Colorado", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]},
+    {"name": "Cafe Tostado Molido Super Cabrales 250", "defaultQty": 1, "searchQuery": "Cafe Tostado Molido Super Cabrales 250", "mustExclude": ["shampoo", "crema", "gel", "jabón", "jugo", "bebida", "colonia", "zapato"]},
+    { "name": "Cepillo De Dientes COLGATE Bamboo", "defaultQty": 1, "searchQuery": "Cepillo De Dientes COLGATE Bamboo", "mustExclude": []  }
   ]
 }

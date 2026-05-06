@@ -5,8 +5,14 @@
   "type": "module",
   "main": "src/index.js",
   "scripts": {
-    "start": "node src/index.js",
-    "debug": "PWDEBUG=1 node src/index.js"
+    "start":            "node src/index.js",
+    "start:weekly":     "node src/index.js --file=products/weekly.json",
+    "start:asado":      "node src/index.js --file=products/recurrent-asado.json",
+    "start:recurrent":  "node src/index.js --file=products/COTO-recurrent-purchases.json",
+    "debug":            "PWDEBUG=1 node src/index.js",
+    "debug:weekly":     "PWDEBUG=1 node src/index.js --file=products/weekly.json",
+    "debug:asado":      "PWDEBUG=1 node src/index.js --file=products/recurrent-asado.json",
+    "debug:recurrent":  "PWDEBUG=1 node src/index.js --file=products/COTO-recurrent-purchases.json"
   },
   "engines": {
     "node": ">=20.0.0"
